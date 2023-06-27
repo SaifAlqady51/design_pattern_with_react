@@ -1,4 +1,7 @@
-import styled from 'styled-components'
+import { FC } from 'react'
+import { Container } from '../styles/Container.styles'
+import { Pane } from '../styles/Pane.styles'
+
 
 type SpliScreenProps = {
     children: JSX.Element[] 
@@ -6,20 +9,9 @@ type SpliScreenProps = {
     rightWeight:number
 }
 
-interface PaneProps {
-    weight:number
-}
-
-const Container = styled.div`
-    display:flex;
-`
-
-const Pane = styled.div<PaneProps>`
-    flex: ${props => props.weight};
-`
 
 
-export const SplitScreen = ({children,leftWeight,rightWeight}: SpliScreenProps) => {
+export const SplitScreen: FC<SpliScreenProps> = ({children,leftWeight,rightWeight}: SpliScreenProps) => {
     const [left,right] = children
     return (
         <Container>
